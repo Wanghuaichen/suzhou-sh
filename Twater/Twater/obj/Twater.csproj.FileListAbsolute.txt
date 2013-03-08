@@ -1,0 +1,38 @@
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\Twater.Properties.Resources.resources
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\bin\Debug\Twater.exe
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\bin\Debug\Twater.pdb
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\Twater.exe
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\Twater.pdb
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\Twater.Start.resources
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\Twater.Mainfrm.resources
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\Twater.Showdata.resources
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\Twater.About.resources
+C:\Users\wyq\Documents\Visual Studio 2005\Projects\Twater\Twater\obj\Debug\Twater.Searchdata.resources
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.exe
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.pdb
+H:\苏州--水华\Twater\Twater\bin\Debug\Twater.exe
+H:\苏州--水华\Twater\Twater\bin\Debug\Twater.pdb
+H:\苏州--水华\Twater\Twater\obj\Debug\ResolveAssemblyReference.cache
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.About.resources
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Mainfrm.resources
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Properties.Resources.resources
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Searchdata.resources
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Showdata.resources
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Start.resources
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
+H:\苏州--水华\Twater\Twater\obj\Debug\Interop.MapXLib.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\AxInterop.MapXLib.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.csproj.ResolveComReference.cache
+H:\苏州--水华\Twater\Twater\bin\Debug\Interop.MapXLib.dll
+H:\苏州--水华\Twater\Twater\bin\Debug\AxInterop.MapXLib.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Reportdata.resources
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.DataFit.resources
+H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Prediction.resources
+H:\苏州--水华\Twater\Twater\bin\Debug\Interop.MLApp.dll
+H:\苏州--水华\Twater\Twater\bin\Debug\Interop.MWComUtil.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Interop.MLApp.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Interop.MWComUtil.dll
+H:\苏州--水华\Twater\Twater\bin\Debug\Interop.ma.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Interop.ma.dll

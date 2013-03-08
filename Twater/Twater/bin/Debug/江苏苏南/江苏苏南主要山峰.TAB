@@ -1,0 +1,9 @@
+!table
+!version 300
+!charset WindowsSimpChinese
+
+Definition Table
+  Type NATIVE Charset "WindowsSimpChinese"
+  Fields 2
+    NAME Char (20) Index 1 ;
+    H Integer ;
