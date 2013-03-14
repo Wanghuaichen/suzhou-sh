@@ -13,16 +13,57 @@ namespace Twater
     {
         string datsours1 = null;
         string cmpdat1 = null;
+        //自动站校正数据参量
+        double[] dtph=new double[1024];
+        double[] dtouse=new double[1024];
+        double[] dtwatmp=new double[1024];
+        double[] dtntu=new double[1024];
+        double[] dtann=new double[1024];
+        double[] dtntotal=new double[1024];
+        double[] dtptotal=new double[1024];
+        double[] dtodis=new double[1024];
+        double[] dtchol=new double[1024];
+        double[] dtalgden=new double[1024];
+        double[] dttime=new double[1024];//建模时间取自limis
+        double[] dtnewtim=new double[1024];//具体取值所有时间，作为x
+        int ddat;//具体所有时间数值个数
+        //浮标校正数据参量
+        double[] dfuph=new double[1024];
+        double[] dfuwatmp=new double[1024];
+        double[] dfuntu=new double[1024];
+        double[] dfuodis=new double[1024];
+
+        double[] dfulx=new double[1024];
+        double[] dfullv=new double[1024];
+        double[] dfuyls=new double[1024];
+        double[] dfuavewind=new double[1024];
+        double[] dfuwindspd=new double[1024];
+        double[] dfutmp=new double[1024];
+        double[] dfurelhumid=new double[1024];
+        double[] dfupres=new double[1024];
+        double[] dfurain=new double[1024];
+        double[] dfuheattmp=new double[1024];
+        double[] dfuheatv=new double[1024];
+        double[] dfuconduc=new double[1024];
+        double[] dfusolt=new double[1024];
+        double[] dfutimedat=new double[1024];
+        List<string> strfutimelist = new List<string>();
+        String[] strfudatnew = new String[1024];//存数据库所用的时间字符串中间变量
+        /// <summary>
+        /// //
+        /// </summary>
+        String[] strdatnew=new String[1024];//存数据库所用的时间字符串中间变量
         //中间数据x,y
         List<double> mList = new List<double>();
         List<string> timeList = new List<string>();
+        List<string> newtimeList = new List<string>();
         double[] mlist=new double[1024];
         double[] timelist=new double[1024];
         double dnewdat;//最后结果
         double dnewtim;//时间的double值
         DateTime fdatetim;
-        int tcountdat;      
-
+        int tcountdat;
+        int tallcoutdat;
        
         public DataFit()
         {
@@ -343,6 +384,416 @@ namespace Twater
             }
             sql.Close();
         }
+
+        #region 自动站数据校正
+        /// <summary>
+        /// 从数据库得到所有数据
+        /// </summary>建模数据
+        /// <param name="cmpdata"></param>
+        /// <param name="datasource"></param>
+        public void getalldata(string datasource, string dattime)
+        {
+            string sqlstr = "select top 500 PH,water_temp,NTU,AN_N,N_total,O_dis,time  from " + datasource + " where time < '" + dattime + "' order by ID desc";//  order by ID desc
+            SqlConnection sql = new SqlConnection(Global.sqlconstr);
+            sql.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
+            da.Fill(dt);
+
+            tcountdat = dt.Rows.Count>1024?1024:dt.Rows.Count;
+            if (0 == tcountdat)
+            {
+                ;
+            }
+            else
+            {
+                int i = 0;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (string.IsNullOrEmpty(dr[0].ToString()))
+                    {
+                        ;// MessageBox.Show("该值为空值");
+                    }
+                    else
+                    {
+                        if (tcountdat > i)
+                        {
+                            dtph[i] = double.Parse(dr[0].ToString());
+                            dtwatmp[i] = double.Parse(dr[1].ToString());
+                            dtntu[i] = double.Parse(dr[2].ToString());
+                            dtann[i] = double.Parse(dr[3].ToString());
+                            dtntotal[i] = double.Parse(dr[4].ToString());
+                            dtodis[i] = double.Parse(dr[5].ToString());
+                            timeList.Add(dr[6].ToString());
+                            i++;
+                        }
+                    }
+                }
+            }
+            sql.Close();
+        }
+        /// <summary>
+        /// 一键校正所有数据
+        /// </summary>
+        public void fitalldata()
+        {
+            ////循环
+            string dattim1 = DateTime.Now.ToString();
+            getalldata("T_lmis", dattim1);//加个时间
+            if (allchangdat(timeList))
+            {
+                double[] fcan;
+                getalltimedata("T_station");
+                allchangdattt(newtimeList);
+                //循环
+                fcan = Datafiting.MultiLine(dttime, dtph, tcountdat, 2);
+                dtph = getallresult(fcan, dtnewtim);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                fcan = Datafiting.MultiLine(dttime, dtwatmp, tcountdat, 2);
+                dtwatmp = getallresult(fcan, dtnewtim);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                fcan = Datafiting.MultiLine(dttime, dtntu, tcountdat, 2);
+                dtntu = getallresult(fcan, dtnewtim);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                fcan = Datafiting.MultiLine(dttime, dtann, tcountdat, 2);
+                dtann = getallresult(fcan, dtnewtim);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                fcan = Datafiting.MultiLine(dttime, dtntotal, tcountdat, 2);
+                dtntotal = getallresult(fcan, dtnewtim);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                fcan = Datafiting.MultiLine(dttime, dtodis, tcountdat, 2);
+                dtodis = getallresult(fcan, dtnewtim);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                allstroredat("T_station_correct");
+                MessageBox.Show("校正完毕");
+            }
+        }
+        /// <summary>
+        /// 得到所有结果
+        /// </summary>
+        /// <param name="cand"></param>
+        /// <param name="cmptim"></param>
+        /// <returns></returns>
+        private double[] getallresult(double[] cand, double[] dcmptim)
+        {
+            double[] ddddat = new double[ddat];
+            for (int i = 0; i < ddat; i++)
+            {
+                ddddat[i] = cand[0] + cand[1] * dcmptim[i] + cand[2] * dcmptim[i] * dcmptim[i];
+            }
+            return ddddat;
+        }
+        /// <summary>
+        /// 得到时间数据
+        /// </summary>
+        /// <param name="datasource"></param>
+        /// <param name="dattime"></param>
+        public void getalltimedata(string datasource)
+        {
+            string sqlstr = "select top 1024 time,O_use,P_total,Chol,Alg_den from " + datasource + "  order by ID desc";
+            SqlConnection sql = new SqlConnection(Global.sqlconstr);
+            sql.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
+            da.Fill(dt);
+            ddat = dt.Rows.Count>1024?1024:dt.Rows.Count;
+            if (0 == ddat)
+            {
+                ;
+            }
+            else
+            {
+                int i = 0;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (string.IsNullOrEmpty(dr[0].ToString()))
+                    {
+                        ;// MessageBox.Show("该值为空值");
+                    }
+                    else
+                    {
+                        //dtnewtim[i] = double.Parse(dr[0].ToString());
+                        if(ddat>i)
+                        {
+                            newtimeList.Add(dr[0].ToString());
+                            dtouse[i] = double.Parse(dr[1].ToString());
+                            dtptotal[i] = double.Parse(dr[2].ToString());
+                            dtchol[i] = double.Parse(dr[3].ToString());
+                            dtalgden[i] = double.Parse(dr[4].ToString());
+                            i++;
+                        }
+                    }
+                }
+            }
+            sql.Close();
+        }
+        /// <summary>
+        /// 把时间换算成数值
+        /// </summary>
+        /// <param name="lmtimdat"></param>
+        /// <returns></returns>
+        public bool allchangdat(List<string> lmtimdat)
+        {
+            if (0 == lmtimdat.Count)
+            {
+                MessageBox.Show("库中不存在指定数据");
+                return false;
+            }
+            else
+            {
+                String[] strdat = lmtimdat.ToArray();
+                tcountdat = tcountdat > 1024 ? 1024 : tcountdat;
+                for (int i = 0; i < tcountdat; i++)
+                {
+                    fdatetim = DateTime.Parse(strdat[i].ToString());
+                    double y = fdatetim.Year;
+                    double mt = fdatetim.Month;
+                    double d = fdatetim.Day;
+                    double h = fdatetim.Hour;
+                    double mm = fdatetim.Minute;
+                    if (1 == mt || 3 == mt || 5 == mt || 7 == mt || 8 == mt || 10 == mt || 12 == mt)
+                        dttime[i] = (y * 365 + mt * 31 + d) * 24 + h + mm / 60;
+                    else if (2 == mt)
+                        dttime[i] = (y * 365 + mt * 28 + d) * 24 + h + mm / 60;
+                    else
+                        dttime[i] = (y * 365 + mt * 30 + d) * 24 + h + mm / 60;
+                }
+                return true;
+            }
+
+        }
+        /// <summary>
+        /// 换算时间,real data
+        /// </summary>
+        /// <param name="lmtimdat"></param>
+        /// <returns></returns>
+        public bool allchangdattt(List<string> lmtimdat)
+        {
+            if (0 == lmtimdat.Count)
+            {
+                MessageBox.Show("库中不存在指定数据");
+                return false;
+            }
+            else
+            {
+                strdatnew = lmtimdat.ToArray();
+                tallcoutdat = ddat > 1024 ? 1024 : ddat;
+                for (int i = 0; i < tallcoutdat; i++)
+                {
+                    fdatetim = DateTime.Parse(strdatnew[i].ToString());
+                    double y = fdatetim.Year;
+                    double mt = fdatetim.Month;
+                    double d = fdatetim.Day;
+                    double h = fdatetim.Hour;
+                    double mm = fdatetim.Minute;
+                    if (1 == mt || 3 == mt || 5 == mt || 7 == mt || 8 == mt || 10 == mt || 12 == mt)
+                        dtnewtim[i] = (y * 365 + mt * 31 + d) * 24 + h + mm / 60;
+                    else if (2 == mt)
+                        dtnewtim[i] = (y * 365 + mt * 28 + d) * 24 + h + mm / 60;
+                    else
+                        dtnewtim[i] = (y * 365 + mt * 30 + d) * 24 + h + mm / 60;
+                }
+                return true;
+            }
+
+        }
+#endregion
+
+        #region 浮标数据校正
+        public void fufitalldata()
+        {
+            ////循环
+            string dattim1 = DateTime.Now.ToString();
+            fugetalldata("T_lmis", dattim1);//加个时间
+            if (allchangdat(timeList))
+            {
+                double[] fcan;
+                fugetalltimedata("T_fubiao");
+                fuallchangdattt(strfutimelist);
+                //循环
+                fcan = Datafiting.MultiLine(dttime, dfuph, tcountdat, 2);
+                dfuph = getallresult(fcan, dfutimedat);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                fcan = Datafiting.MultiLine(dttime, dfuwatmp, tcountdat, 2);
+                dfuwatmp = getallresult(fcan, dfutimedat);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                fcan = Datafiting.MultiLine(dttime, dfuntu, tcountdat, 2);
+                dfuntu = getallresult(fcan, dfutimedat);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                fcan = Datafiting.MultiLine(dttime, dfuodis, tcountdat, 2);
+                dfuodis = getallresult(fcan, dfutimedat);//时间必须是浮标或者自动站的时间数据，不能是limis的数据 //时间从数据库里面取得
+
+                fuallstroredat("T_fubiao_correct");
+                MessageBox.Show("校正完毕");
+            }
+        }
+
+        public void fugetalldata(string datasource, string dattime)
+        {
+            string sqlstr = "select top 500 PH,water_temp,NTU,O_dis,time  from " + datasource + " where time < '" + dattime + "' order by ID desc";//  order by ID desc
+            SqlConnection sql = new SqlConnection(Global.sqlconstr);
+            sql.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
+            da.Fill(dt);
+
+            tcountdat = dt.Rows.Count > 1024 ? 1024 : dt.Rows.Count;
+            if (0 == tcountdat)
+            {
+                ;
+            }
+            else
+            {
+                int i = 0;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (string.IsNullOrEmpty(dr[0].ToString()))
+                    {
+                        ;// MessageBox.Show("该值为空值");
+                    }
+                    else
+                    {
+                        if (tcountdat > i)
+                        {
+                            dfuph[i] = double.Parse(dr[0].ToString());
+                            dfuwatmp[i] = double.Parse(dr[1].ToString());
+                            dfuntu[i] = double.Parse(dr[2].ToString());
+                            dfuodis[i] = double.Parse(dr[3].ToString());
+                            timeList.Add(dr[4].ToString());
+                            i++;
+                        }
+                    }
+                }
+            }
+            sql.Close();
+        }
+
+        public void fugetalltimedata(string datasource)
+        {
+            string sqlstr = "select top 1024 time,LX,LLV,YLS,Ave_wind,Wind_spd,Temp,Rel_humid,Pres,Rain,Heat_temp,Heat_v,Conduc,Solt from " + datasource + "  order by ID desc";
+            SqlConnection sql = new SqlConnection(Global.sqlconstr);
+            sql.Open();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
+            da.Fill(dt);
+            ddat = dt.Rows.Count > 1024 ? 1024 : dt.Rows.Count;
+            if (0 == ddat)
+            {
+                ;
+            }
+            else
+            {
+                int i = 0;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (string.IsNullOrEmpty(dr[0].ToString()))
+                    {
+                        ;// MessageBox.Show("该值为空值");
+                    }
+                    else
+                    {
+                        //dtnewtim[i] = double.Parse(dr[0].ToString());
+                        if (ddat > i)
+                        {
+                            strfutimelist.Add(dr[0].ToString());
+                            dfulx[i] = double.Parse(dr[1].ToString());
+                            dfullv[i] = double.Parse(dr[2].ToString());
+                            dfuyls[i] = double.Parse(dr[3].ToString());
+                            dfuavewind[i] = double.Parse(dr[4].ToString());
+                            dfuwindspd[i] = double.Parse(dr[5].ToString());
+                            dfutmp[i] = double.Parse(dr[6].ToString());
+                            dfurelhumid[i] = double.Parse(dr[7].ToString());
+                            dfupres[i] = double.Parse(dr[8].ToString());
+                            dfurain[i] = double.Parse(dr[9].ToString());
+                            dfuheattmp[i] = double.Parse(dr[10].ToString());
+                            dfuheatv[i] = double.Parse(dr[11].ToString());
+                            dfuconduc[i] = double.Parse(dr[12].ToString());
+                            dfusolt[i] = double.Parse(dr[13].ToString());
+                            i++;
+                        }
+                    }
+                }
+            }
+            sql.Close();
+        }
+
+        public bool fuallchangdattt(List<string> lmtimdat)
+        {
+            if (0 == lmtimdat.Count)
+            {
+                MessageBox.Show("库中不存在指定数据");
+                return false;
+            }
+            else
+            {
+                strfudatnew = lmtimdat.ToArray();
+                tallcoutdat = ddat > 1024 ? 1024 : ddat;
+                for (int i = 0; i < tallcoutdat; i++)
+                {
+                    fdatetim = DateTime.Parse(strfudatnew[i].ToString());
+                    double y = fdatetim.Year;
+                    double mt = fdatetim.Month;
+                    double d = fdatetim.Day;
+                    double h = fdatetim.Hour;
+                    double mm = fdatetim.Minute;
+                    if (1 == mt || 3 == mt || 5 == mt || 7 == mt || 8 == mt || 10 == mt || 12 == mt)
+                        dfutimedat[i] = (y * 365 + mt * 31 + d) * 24 + h + mm / 60;
+                    else if (2 == mt)
+                        dfutimedat[i] = (y * 365 + mt * 28 + d) * 24 + h + mm / 60;
+                    else
+                        dfutimedat[i] = (y * 365 + mt * 30 + d) * 24 + h + mm / 60;
+                }
+                return true;
+            }
+
+        }
+
+
+        #endregion
+        #region private_only
+        /// <summary>
+        /// 存储所有数据
+        /// </summary>
+        /// <param name="cmpdata"></param>
+        /// <param name="datasource"></param>
+        /// <param name="dnewdat"></param>
+        /// <param name="newtm"></param>
+        private void allstroredat(string datasource)
+        {
+            SqlConnection sqlcon = new SqlConnection(Global.sqlconstr);
+            SqlCommand sqlcommand = sqlcon.CreateCommand();
+            sqlcon.Open();
+            for (int k = 0; k < ddat; k++)
+            {
+                sqlcommand.CommandText = "insert  into " + datasource + "(PH,O_use,water_temp,NTU,AN_N,N_total,P_total,O_dis,Chol,Alg_den,time) values ('" + dtph[k].ToString() + "','" + dtouse[k].ToString() + "','" + dtwatmp[k].ToString() + "','" + dtntu[k].ToString() + "','" + dtann[k].ToString() + "','" + dtntotal[k].ToString() + "','" + dtptotal[k].ToString() + "','" + dtodis[k].ToString() + "','" + dtchol[k].ToString() + "','" + dtalgden[k].ToString() + "','" + DateTime.Parse(strdatnew[k]) + "')";
+                sqlcommand.ExecuteNonQuery();
+            }
+            sqlcommand.Dispose();
+            sqlcon.Close();
+        }
+
+        private void fuallstroredat(string datasource)
+        {
+            SqlConnection sqlcon = new SqlConnection(Global.sqlconstr);
+            SqlCommand sqlcommand = sqlcon.CreateCommand();
+            sqlcon.Open();
+            for (int k = 0; k < ddat; k++)
+            {
+                string cmdtxt= "insert  into " + datasource + "(LX,LLV,YLS,Ave_wind,Wind_spd,Temp,Rel_humid,Pres,Rain,Heat_temp,Heat_v,Water_temp,Conduc,NTU,PH,O_disv,Solt,time) values ";
+                cmdtxt += "('" + dfulx[k].ToString() + "','" + dfullv[k].ToString() + "','" + dfuyls[k].ToString() + "',";
+                cmdtxt += "'" + dfuavewind[k].ToString() + "','" + dfuwindspd[k].ToString() + "','" + dfutmp[k].ToString() + "',";
+                cmdtxt += "'" + dfurelhumid[k].ToString() + "','" + dfupres[k].ToString() + "','" + dfurain[k].ToString() + "',";
+                cmdtxt += "'" + dfuheattmp[k].ToString() + "','" + dfuheatv[k].ToString() + "','" + dfuwatmp[k].ToString() + "',";
+                cmdtxt += "'" + dfuconduc[k].ToString() + "','" + dfuntu[k].ToString() + "','" + dfuph[k].ToString() + "',";
+                cmdtxt += "'" + dfuodis[k].ToString() + "','" + dfusolt[k].ToString() + "',";
+                cmdtxt += "'" + DateTime.Parse(strfudatnew[k]) + "')";
+
+                sqlcommand.CommandText = cmdtxt;
+                sqlcommand.ExecuteNonQuery();
+            }
+            sqlcommand.Dispose();
+            sqlcon.Close();
+        }
         /// <summary>
         /// 把数据都转成double型的数组，方便计算
         /// </summary>
@@ -421,6 +872,7 @@ namespace Twater
             sqlcommand.Dispose();
             sqlcon.Close();
         }
+        #endregion
         /// <summary>
         /// 退出
         /// </summary>

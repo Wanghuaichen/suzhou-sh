@@ -22,5 +22,9 @@ H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Searchdata.resources
 H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Showdata.resources
 H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Start.resources
 H:\苏州--水华\Twater\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
-H:\苏州--水华\Twater\Twater\obj\Debug\Interop.mat.dll
-H:\苏州--水华\Twater\Twater\bin\Debug\Interop.mat.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Interop.finalone.dll
+H:\苏州--水华\Twater\Twater\bin\Debug\Interop.finalone.dll
+H:\苏州--水华\Twater\Twater\bin\Debug\Interop.svmnew.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Interop.svmnew.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Interop.xulie.dll
+H:\苏州--水华\Twater\Twater\bin\Debug\Interop.xulie.dll

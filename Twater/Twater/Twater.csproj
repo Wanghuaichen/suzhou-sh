@@ -159,17 +159,17 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
-    <COMReference Include="MapXLib">
-      <Guid>{E760686B-BC9E-4802-9ECF-175FDF4062CE}</Guid>
-      <VersionMajor>5</VersionMajor>
+    <COMReference Include="finalone">
+      <Guid>{A5689C7F-A860-47DA-9FB9-6A20F5EC79BD}</Guid>
+      <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
-    <COMReference Include="mat">
-      <Guid>{4B9AAD32-1F6F-4166-A046-4AE71CBBCC83}</Guid>
-      <VersionMajor>1</VersionMajor>
+    <COMReference Include="MapXLib">
+      <Guid>{E760686B-BC9E-4802-9ECF-175FDF4062CE}</Guid>
+      <VersionMajor>5</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
@@ -197,6 +197,22 @@
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="svmnew">
+      <Guid>{23F3A6A3-1A44-4494-B243-9BD8BD19E62B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="xulie">
+      <Guid>{247ECB6B-DB20-4AB6-AF82-F276B1489D65}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
   </ItemGroup>

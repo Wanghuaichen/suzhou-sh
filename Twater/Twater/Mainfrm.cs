@@ -356,5 +356,12 @@ namespace Twater
             dlg.ShowDialog();
         }
 
+        private void 一键校正ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataFit aa = new DataFit();
+           // aa.fitalldata();//校正自动站数据
+            aa.fufitalldata();//校正浮标数据
+        }
+
     }
 }

@@ -39,6 +39,7 @@
             this.showdata = new System.Windows.Forms.ToolStripButton();
             this.searchdata = new System.Windows.Forms.ToolStripButton();
             this.Reportdat = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -77,7 +78,7 @@
             this.axMap1 = new AxMapXLib.AxMap();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.一键校正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -171,6 +172,17 @@
             this.Reportdat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Reportdat.Click += new System.EventHandler(this.Reportdat_Click);
             // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(68, 92);
+            this.toolStripButton3.Text = "数据校正";
+            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
             // toolStripButton1
             // 
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
@@ -218,7 +230,8 @@
             this.数据显示ToolStripMenuItem,
             this.数据查询ToolStripMenuItem,
             this.数据报表ToolStripMenuItem,
-            this.预测预警ToolStripMenuItem});
+            this.预测预警ToolStripMenuItem,
+            this.一键校正ToolStripMenuItem});
             this.管理MToolStripMenuItem.Name = "管理MToolStripMenuItem";
             this.管理MToolStripMenuItem.Size = new System.Drawing.Size(64, 21);
             this.管理MToolStripMenuItem.Text = "管理(M)";
@@ -533,16 +546,12 @@
             this.timer2.Interval = 50;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // toolStripButton3
+            // 一键校正ToolStripMenuItem
             // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(68, 92);
-            this.toolStripButton3.Text = "数据校正";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.一键校正ToolStripMenuItem.Name = "一键校正ToolStripMenuItem";
+            this.一键校正ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.一键校正ToolStripMenuItem.Text = "一键校正";
+            this.一键校正ToolStripMenuItem.Click += new System.EventHandler(this.一键校正ToolStripMenuItem_Click);
             // 
             // Mainfrm
             // 
@@ -630,6 +639,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripMenuItem 一键校正ToolStripMenuItem;
     }
 }
 
