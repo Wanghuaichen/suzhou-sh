@@ -135,6 +135,10 @@ namespace Twater
             {
                 MessageBox.Show("没有数据"); ;
             }
+            else if(100>tcountdat)
+            {
+                MessageBox.Show("所取数据不能小于100组，请重新选取");
+            }
             else
             {
                 dsvmdat = new double[tcountdat, 10];
