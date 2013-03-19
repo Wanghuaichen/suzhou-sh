@@ -383,7 +383,7 @@ namespace Twater
                 extendedName = Path.GetExtension(fileName);       //获得文件扩展名
                 fileName1 = Path.GetFileName(fileName);           //获得文件名
                 fubiaodata.strtime = fileName1.Substring(0,fileName1.Length-4);
-                fubiaodata.dt = DateTime.ParseExact(fubiaodata.strtime, "yyyyMMddhhmmss", System.Globalization.CultureInfo.CurrentCulture);
+                fubiaodata.dt = DateTime.ParseExact(fubiaodata.strtime, "yyyyMMddHHmmss", System.Globalization.CultureInfo.CurrentCulture);
                 ///////////////////////////////////////////////////
                 int linNum = 0;
                 string[] txtline = File.ReadAllLines(ofd.FileName, Encoding.GetEncoding("gb2312"));//读入中文不是乱码  
