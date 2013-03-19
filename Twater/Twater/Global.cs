@@ -10,6 +10,32 @@ using System.Drawing;
 
 namespace Twater
 {
+    public static class fubiaodata
+    {
+        public static string strlx;
+        public static string strllv;
+        public static string stryls;
+
+        public static string strdm;
+        public static string strsm;
+        public static string strta;
+        public static string strua;
+        public static string strpa;
+        public static string strrc;
+        public static string strth;
+        public static string strvh;
+
+        public static string strwatertmp;
+        public static string strconduc;
+        public static string strntu;
+        public static string strph;
+        public static string strodiv;
+        public static string strsolt;
+
+        public static string strtime;
+        public static DateTime dt;
+    }
+
     public static class Global
     {
         [DllImport("kernel32")]

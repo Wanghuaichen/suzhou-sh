@@ -49,6 +49,7 @@
             this.数据查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.预测预警ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.一键校正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuabout = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -78,7 +79,7 @@
             this.axMap1 = new AxMapXLib.AxMap();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.一键校正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.提取浮标数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -220,6 +221,8 @@
             // 
             // 系统配置ToolStripMenuItem
             // 
+            this.系统配置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.提取浮标数据ToolStripMenuItem});
             this.系统配置ToolStripMenuItem.Name = "系统配置ToolStripMenuItem";
             this.系统配置ToolStripMenuItem.Size = new System.Drawing.Size(58, 21);
             this.系统配置ToolStripMenuItem.Text = "维护(F)";
@@ -239,26 +242,33 @@
             // 数据显示ToolStripMenuItem
             // 
             this.数据显示ToolStripMenuItem.Name = "数据显示ToolStripMenuItem";
-            this.数据显示ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.数据显示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.数据显示ToolStripMenuItem.Text = "数据显示";
             // 
             // 数据查询ToolStripMenuItem
             // 
             this.数据查询ToolStripMenuItem.Name = "数据查询ToolStripMenuItem";
-            this.数据查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.数据查询ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.数据查询ToolStripMenuItem.Text = "数据查询";
             // 
             // 数据报表ToolStripMenuItem
             // 
             this.数据报表ToolStripMenuItem.Name = "数据报表ToolStripMenuItem";
-            this.数据报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.数据报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.数据报表ToolStripMenuItem.Text = "数据报表";
             // 
             // 预测预警ToolStripMenuItem
             // 
             this.预测预警ToolStripMenuItem.Name = "预测预警ToolStripMenuItem";
-            this.预测预警ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.预测预警ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.预测预警ToolStripMenuItem.Text = "预测预警";
+            // 
+            // 一键校正ToolStripMenuItem
+            // 
+            this.一键校正ToolStripMenuItem.Name = "一键校正ToolStripMenuItem";
+            this.一键校正ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.一键校正ToolStripMenuItem.Text = "一键校正";
+            this.一键校正ToolStripMenuItem.Click += new System.EventHandler(this.一键校正ToolStripMenuItem_Click);
             // 
             // menuabout
             // 
@@ -546,12 +556,12 @@
             this.timer2.Interval = 50;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // 一键校正ToolStripMenuItem
+            // 提取浮标数据ToolStripMenuItem
             // 
-            this.一键校正ToolStripMenuItem.Name = "一键校正ToolStripMenuItem";
-            this.一键校正ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.一键校正ToolStripMenuItem.Text = "一键校正";
-            this.一键校正ToolStripMenuItem.Click += new System.EventHandler(this.一键校正ToolStripMenuItem_Click);
+            this.提取浮标数据ToolStripMenuItem.Name = "提取浮标数据ToolStripMenuItem";
+            this.提取浮标数据ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.提取浮标数据ToolStripMenuItem.Text = "提取浮标数据";
+            this.提取浮标数据ToolStripMenuItem.Click += new System.EventHandler(this.提取浮标数据ToolStripMenuItem_Click);
             // 
             // Mainfrm
             // 
@@ -640,6 +650,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripMenuItem 一键校正ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 提取浮标数据ToolStripMenuItem;
     }
 }
 

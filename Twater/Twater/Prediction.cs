@@ -52,8 +52,10 @@ namespace Twater
 
                 if ("支持向量机" == stragl)
                 {
-                    svmnew.svmnewclassClass matlb = new svmnew.svmnewclassClass();
-                    matlb.SVMpredict(1, ref y, dsvmdat, strdaynum);
+                    svma.svmaclassClass aaa = new svma.svmaclassClass();
+                    aaa.SVMpredict(1, ref y, dsvmdat, strdaynum);
+                    //svmnew.svmnewclassClass matlb = new svmnew.svmnewclassClass();
+                    //matlb.SVMpredict(1, ref y, dsvmdat, strdaynum);
                 }
                 else
                 {

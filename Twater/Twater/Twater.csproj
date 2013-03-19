@@ -159,14 +159,6 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
-    <COMReference Include="finalone">
-      <Guid>{A5689C7F-A860-47DA-9FB9-6A20F5EC79BD}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
     <COMReference Include="MapXLib">
       <Guid>{E760686B-BC9E-4802-9ECF-175FDF4062CE}</Guid>
       <VersionMajor>5</VersionMajor>
@@ -199,8 +191,8 @@
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
-    <COMReference Include="svmnew">
-      <Guid>{23F3A6A3-1A44-4494-B243-9BD8BD19E62B}</Guid>
+    <COMReference Include="svma">
+      <Guid>{337866AF-D913-44FC-BB84-81B466DE7F66}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>

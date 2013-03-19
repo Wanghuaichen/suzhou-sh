@@ -6,11 +6,17 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Twater
 {
     public partial class Mainfrm : Form
     {
+        String fileName;
+        String extendedName;
+        String fileName1;
+
         private TabPage tbshowdata = null;
         private TabPage tbsearchdata = null;
         private TabPage tbreportdata = null;
@@ -360,7 +366,136 @@ namespace Twater
         {
             DataFit aa = new DataFit();
            // aa.fitalldata();//校正自动站数据
-            aa.fufitalldata();//校正浮标数据
+           // aa.fufitalldata();//校正浮标数据
+            MessageBox.Show("测试使用，已屏蔽");
+        }
+
+        private void 提取浮标数据ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();                //new一个方法
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); //定义打开的默认文件夹位置
+            ofd.Filter = "txt文件|*.txt|所有文件|*.*";
+            ofd.RestoreDirectory = true;
+            ofd.FilterIndex = 1;
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                fileName = ofd.FileName;                //获得选择的文件路径
+                extendedName = Path.GetExtension(fileName);       //获得文件扩展名
+                fileName1 = Path.GetFileName(fileName);           //获得文件名
+                fubiaodata.strtime = fileName1.Substring(0,fileName1.Length-4);
+                fubiaodata.dt = DateTime.ParseExact(fubiaodata.strtime, "yyyyMMddhhmmss", System.Globalization.CultureInfo.CurrentCulture);
+                ///////////////////////////////////////////////////
+                int linNum = 0;
+                string[] txtline = File.ReadAllLines(ofd.FileName, Encoding.GetEncoding("gb2312"));//读入中文不是乱码  
+                linNum = txtline.Length;
+                for (int i = 0; i < linNum; i++)
+                {
+                    Regex rx = new Regex(@"^qx,0R0,DM=\S{1,}W$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+                    Match mth = rx.Match(txtline[i]);
+                    if (mth.Success)
+                    {
+                        //MessageBox.Show("aaaaaa");
+                        int istdm = txtline[i].IndexOf("=") + 1;
+                        int ienddm = txtline[i].IndexOf("D", istdm);
+                        fubiaodata.strdm = txtline[i].Substring(istdm, ienddm - istdm);
+
+                        int istsm = txtline[i].IndexOf("=", ienddm + 1) + 1;
+                        int iendsm = txtline[i].IndexOf("M", istsm);
+                        fubiaodata.strsm = txtline[i].Substring(istsm, iendsm - istsm);
+
+                        int istta = txtline[i].IndexOf("=", iendsm + 1) + 1;
+                        int iendta = txtline[i].IndexOf("C", istta);
+                        fubiaodata.strta = txtline[i].Substring(istta, iendta - istta);
+
+                        int istua = txtline[i].IndexOf("=", iendta + 1) + 1;
+                        int iendua = txtline[i].IndexOf("P", istua);
+                        fubiaodata.strua = txtline[i].Substring(istua, iendua - istua);
+
+                        int istpa = txtline[i].IndexOf("=", iendua + 1) + 1;
+                        int iendpa = txtline[i].IndexOf("H", istpa);
+                        fubiaodata.strpa = txtline[i].Substring(istpa, iendpa - istpa);
+
+                        int istrc = txtline[i].IndexOf("=", iendpa + 1) + 1;
+                        int iendrc = txtline[i].IndexOf("M", istrc);
+                        fubiaodata.strrc = txtline[i].Substring(istrc, iendrc - istrc);
+
+                        int istth = txtline[i].IndexOf("=", iendrc + 1) + 1;
+                        int iendth = txtline[i].IndexOf("C", istth);
+                        fubiaodata.strth = txtline[i].Substring(istth, iendth - istth);
+
+                        int istvh = txtline[i].IndexOf("=", iendth + 1) + 1;
+                        int iendvh = txtline[i].IndexOf("W", istvh);
+                        fubiaodata.strvh = txtline[i].Substring(istvh, iendvh - istvh);
+                    }
+
+                    Regex rx1 = new Regex(@"^adc\S{1,}", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+                    Match mth1 = rx1.Match(txtline[i]);
+                    if (mth1.Success)
+                    {
+                        //MessageBox.Show("adc");
+                        string[] stradc = txtline[i].Split(',');
+                        string stradc1 = stradc[1];
+                        string stradc2 = stradc[2];
+                        string stradc3 = stradc[3];
+                        string stradc4 = stradc[4];
+                        string stradc5 = stradc[5];
+                        string stradc6 = stradc[6];
+                        string stradc7 = stradc[7];
+                        int ik1 = Int32.Parse(stradc1);
+                        int ik2 = Int32.Parse(stradc2);
+                        int ik3 = Int32.Parse(stradc3);
+                        int ik4 = Int32.Parse(stradc4);
+                        int ik5 = Int32.Parse(stradc5);
+                        int ik6 = Int32.Parse(stradc6);
+                        int ik7 = Int32.Parse(stradc7);
+                        fubiaodata.strlx = (ik1 * 146.48).ToString();
+                        fubiaodata.strllv = (((ik2 + ik3 * 10 + ik4 * 100) * 39.0625) / 100).ToString();
+                        fubiaodata.stryls = (((ik5 + ik6 * 10 + ik7 * 100) * 39.0625) / 100).ToString();
+                        //int icout=stradc[0]
+
+                    }
+
+                    Regex rx2 = new Regex(@"^ds\S{1,}", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+                    Match mth2 = rx2.Match(txtline[i]);
+                    if (mth2.Success)
+                    {
+                        //MessageBox.Show("qx");
+                        string[] strqx = txtline[i].Split(',');
+                        fubiaodata.strwatertmp = strqx[1];
+                        fubiaodata.strconduc = strqx[2];
+                        fubiaodata.strntu = strqx[3];
+                        fubiaodata.strph = strqx[4];
+                        fubiaodata.strodiv = strqx[5];
+                        fubiaodata.strsolt = strqx[7];
+                    }
+
+                }
+
+                SqlConnection sqlcon = new SqlConnection(Global.sqlconstr);
+                SqlCommand sqlcommand = sqlcon.CreateCommand();
+                sqlcon.Open();
+                //for (int k = 0; k < ddat; k++)
+                {
+                    string cmdtxt = "insert  into T_fubiao (LX,LLV,YLS,Ave_wind,Wind_spd,Temp,Rel_humid,Pres,Rain,Heat_temp,Heat_v,Water_temp,Conduc,NTU,PH,O_disv,Solt,time) values ";
+                    cmdtxt += "('" + fubiaodata.strlx + "','" + fubiaodata.strllv + "','" + fubiaodata.stryls + "',";
+                    cmdtxt += "'" + fubiaodata.strdm + "','" + fubiaodata.strsm + "','" + fubiaodata.strta + "',";
+                    cmdtxt += "'" + fubiaodata.strua + "','" + fubiaodata.strpa + "','" + fubiaodata.strrc + "',";
+                    cmdtxt += "'" + fubiaodata.strth + "','" + fubiaodata.strvh + "','" + fubiaodata.strwatertmp + "',";
+                    cmdtxt += "'" + fubiaodata.strconduc + "','" + fubiaodata.strntu + "','" + fubiaodata.strph + "',";
+                    cmdtxt += "'" + fubiaodata.strodiv + "','" + fubiaodata.strsolt + "',";
+                    cmdtxt += "'" + fubiaodata.dt + "')";
+
+                    sqlcommand.CommandText = cmdtxt;
+                    sqlcommand.ExecuteNonQuery();
+                }
+                sqlcommand.Dispose();
+                sqlcon.Close();
+
+
+
+            }
+
+
         }
 
     }
