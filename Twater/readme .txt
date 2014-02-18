@@ -1,0 +1,1 @@
+修改Log内容，在算法运算报错时的log内容->Auto Predite,GetResult error

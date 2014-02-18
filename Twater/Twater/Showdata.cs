@@ -52,7 +52,7 @@ namespace Twater
                         cmpdat = "O_dis";
                         break;
                     case 4:
-                        cmpdat = "Chol";
+                        cmpdat = "Chol";//gaichengni d Chol
                         break;
                     default:
                         break;
@@ -96,6 +96,10 @@ namespace Twater
         /// <param name="tname"></param>
         private void paintline(Steema.TeeChart.Styles.Line line33, string cmpdata, string datasource,Color tcolor,string tname)
         {
+            if ("¸¡±êÊý¾Ý" == tname && cmpdata == "O_dis")
+            {
+                cmpdata = "O_disv";
+            }
             string sqlstr = "select " + cmpdata + ",time  from "+ datasource +"";
             SqlConnection sql = new SqlConnection(Global.sqlconstr);
             sql.Open();

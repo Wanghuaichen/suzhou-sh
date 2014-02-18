@@ -41,14 +41,20 @@
             this.Reportdat = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.系统配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.提取浮标数据ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.自动预警设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.管理MToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据显示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.数据报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据校正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.预测预警ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.一键校正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuabout = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -78,7 +84,12 @@
             this.axMap1 = new AxMapXLib.AxMap();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.一键校正ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.OpenContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.OpenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -87,6 +98,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMap1)).BeginInit();
             this.toolStripContainer1.SuspendLayout();
+            this.OpenContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -132,7 +144,9 @@
             this.Reportdat,
             this.toolStripButton3,
             this.toolStripButton1,
-            this.toolStripButton2});
+            this.toolStripButton4,
+            this.toolStripButton2,
+            this.toolStripTextBox1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1008, 95);
@@ -194,6 +208,18 @@
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.AutoSize = false;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(68, 92);
+            this.toolStripButton4.Text = "自动预警";
+            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
             // toolStripButton2
             // 
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
@@ -204,6 +230,14 @@
             this.toolStripButton2.Text = "退出";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Font = new System.Drawing.Font("微软雅黑", 20F);
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.ReadOnly = true;
+            this.toolStripTextBox1.Size = new System.Drawing.Size(300, 95);
+            this.toolStripTextBox1.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // menuStrip1
             // 
@@ -220,9 +254,26 @@
             // 
             // 系统配置ToolStripMenuItem
             // 
+            this.系统配置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.提取浮标数据ToolStripMenuItem,
+            this.自动预警设置ToolStripMenuItem});
             this.系统配置ToolStripMenuItem.Name = "系统配置ToolStripMenuItem";
             this.系统配置ToolStripMenuItem.Size = new System.Drawing.Size(58, 21);
             this.系统配置ToolStripMenuItem.Text = "维护(F)";
+            // 
+            // 提取浮标数据ToolStripMenuItem
+            // 
+            this.提取浮标数据ToolStripMenuItem.Name = "提取浮标数据ToolStripMenuItem";
+            this.提取浮标数据ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.提取浮标数据ToolStripMenuItem.Text = "提取浮标数据";
+            this.提取浮标数据ToolStripMenuItem.Click += new System.EventHandler(this.提取浮标数据ToolStripMenuItem_Click);
+            // 
+            // 自动预警设置ToolStripMenuItem
+            // 
+            this.自动预警设置ToolStripMenuItem.Name = "自动预警设置ToolStripMenuItem";
+            this.自动预警设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.自动预警设置ToolStripMenuItem.Text = "自动预警设置";
+            this.自动预警设置ToolStripMenuItem.Click += new System.EventHandler(this.自动预警设置ToolStripMenuItem_Click);
             // 
             // 管理MToolStripMenuItem
             // 
@@ -230,6 +281,7 @@
             this.数据显示ToolStripMenuItem,
             this.数据查询ToolStripMenuItem,
             this.数据报表ToolStripMenuItem,
+            this.数据校正ToolStripMenuItem,
             this.预测预警ToolStripMenuItem,
             this.一键校正ToolStripMenuItem});
             this.管理MToolStripMenuItem.Name = "管理MToolStripMenuItem";
@@ -239,26 +291,44 @@
             // 数据显示ToolStripMenuItem
             // 
             this.数据显示ToolStripMenuItem.Name = "数据显示ToolStripMenuItem";
-            this.数据显示ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.数据显示ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.数据显示ToolStripMenuItem.Text = "数据显示";
+            this.数据显示ToolStripMenuItem.Click += new System.EventHandler(this.数据显示ToolStripMenuItem_Click);
             // 
             // 数据查询ToolStripMenuItem
             // 
             this.数据查询ToolStripMenuItem.Name = "数据查询ToolStripMenuItem";
-            this.数据查询ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.数据查询ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.数据查询ToolStripMenuItem.Text = "数据查询";
+            this.数据查询ToolStripMenuItem.Click += new System.EventHandler(this.数据查询ToolStripMenuItem_Click);
             // 
             // 数据报表ToolStripMenuItem
             // 
             this.数据报表ToolStripMenuItem.Name = "数据报表ToolStripMenuItem";
-            this.数据报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.数据报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.数据报表ToolStripMenuItem.Text = "数据报表";
+            this.数据报表ToolStripMenuItem.Click += new System.EventHandler(this.数据报表ToolStripMenuItem_Click);
+            // 
+            // 数据校正ToolStripMenuItem
+            // 
+            this.数据校正ToolStripMenuItem.Name = "数据校正ToolStripMenuItem";
+            this.数据校正ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.数据校正ToolStripMenuItem.Text = "数据校正";
+            this.数据校正ToolStripMenuItem.Click += new System.EventHandler(this.数据校正ToolStripMenuItem_Click);
             // 
             // 预测预警ToolStripMenuItem
             // 
             this.预测预警ToolStripMenuItem.Name = "预测预警ToolStripMenuItem";
-            this.预测预警ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.预测预警ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.预测预警ToolStripMenuItem.Text = "预测预警";
+            this.预测预警ToolStripMenuItem.Click += new System.EventHandler(this.预测预警ToolStripMenuItem_Click);
+            // 
+            // 一键校正ToolStripMenuItem
+            // 
+            this.一键校正ToolStripMenuItem.Name = "一键校正ToolStripMenuItem";
+            this.一键校正ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.一键校正ToolStripMenuItem.Text = "一键校正";
+            this.一键校正ToolStripMenuItem.Click += new System.EventHandler(this.一键校正ToolStripMenuItem_Click);
             // 
             // menuabout
             // 
@@ -507,13 +577,12 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.Location = new System.Drawing.Point(478, 117);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(20, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
             this.label1.MouseLeave += new System.EventHandler(this.label1_MouseLeave);
             this.label1.MouseHover += new System.EventHandler(this.label1_MouseHover);
             // 
@@ -546,12 +615,48 @@
             this.timer2.Interval = 50;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // 一键校正ToolStripMenuItem
+            // timer3
             // 
-            this.一键校正ToolStripMenuItem.Name = "一键校正ToolStripMenuItem";
-            this.一键校正ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.一键校正ToolStripMenuItem.Text = "一键校正";
-            this.一键校正ToolStripMenuItem.Click += new System.EventHandler(this.一键校正ToolStripMenuItem_Click);
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.ContextMenuStrip = this.OpenContextMenuStrip;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "供水水源地水质实时监测智能预警系统\r\n状态：正在运行中...";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
+            // 
+            // OpenContextMenuStrip
+            // 
+            this.OpenContextMenuStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.OpenContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenToolStripMenuItem,
+            this.MinToolStripMenuItem,
+            this.CloseToolStripMenuItem});
+            this.OpenContextMenuStrip.Name = "OpenContextMenuStrip";
+            this.OpenContextMenuStrip.Size = new System.Drawing.Size(113, 70);
+            // 
+            // OpenToolStripMenuItem
+            // 
+            this.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem";
+            this.OpenToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.OpenToolStripMenuItem.Text = "打开";
+            this.OpenToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
+            // 
+            // MinToolStripMenuItem
+            // 
+            this.MinToolStripMenuItem.Name = "MinToolStripMenuItem";
+            this.MinToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.MinToolStripMenuItem.Text = "最小化";
+            this.MinToolStripMenuItem.Click += new System.EventHandler(this.MinToolStripMenuItem_Click);
+            // 
+            // CloseToolStripMenuItem
+            // 
+            this.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem";
+            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.CloseToolStripMenuItem.Text = "退出";
+            this.CloseToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
             // 
             // Mainfrm
             // 
@@ -563,13 +668,16 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.toolStripContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Mainfrm";
             this.Opacity = 0;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "供水水源地水质实时监测智能化预警系统";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.SizeChanged += new System.EventHandler(this.Mainfrm_SizeChanged);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -578,12 +686,12 @@
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.index.ResumeLayout(false);
-            this.index.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axMap1)).EndInit();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
+            this.OpenContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -640,6 +748,17 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripMenuItem 一键校正ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 提取浮标数据ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 数据校正ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem 自动预警设置ToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.ContextMenuStrip OpenContextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem OpenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CloseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MinToolStripMenuItem;
     }
 }
 

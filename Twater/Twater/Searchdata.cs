@@ -47,8 +47,8 @@ namespace Twater
                     comboBox2.Items.Add("光照度");
                     comboBox2.Items.Add("蓝绿藻");
                     comboBox2.Items.Add("叶绿素");
-                    comboBox2.Items.Add("平均风向");
                     comboBox2.Items.Add("平均风速");
+                    comboBox2.Items.Add("平均风向");
                     comboBox2.Items.Add("气温");
                     comboBox2.Items.Add("相对湿度");
                     comboBox2.Items.Add("气压");
@@ -74,8 +74,8 @@ namespace Twater
                     comboBox2.Items.Add("叶绿素");
                     comboBox2.Items.Add("藻密度");
                     comboBox2.Items.Add("光照度");
-                    comboBox2.Items.Add("平均风向");
                     comboBox2.Items.Add("平均风速");
+                    comboBox2.Items.Add("平均风向");
                     comboBox2.Items.Add("气温");
                     comboBox2.Items.Add("相对湿度");
                     comboBox2.Items.Add("气压");
@@ -141,7 +141,7 @@ namespace Twater
                             cmpdat = "LLV";
                             break;
                         case 2:
-                            cmpdat = "YLS";
+                            cmpdat = "Chol";
                             break;
                         case 3:
                             cmpdat = "Ave_wind";
@@ -189,7 +189,7 @@ namespace Twater
                     break;
                 #endregion
                 #region
-                case 3:
+                case 2:
                     datsours = "T_lmis";
                     switch (comboBox2.SelectedIndex)
                     {
@@ -303,14 +303,22 @@ namespace Twater
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
             da.Fill(dt);
+           
+            if (0 == dt.Rows.Count)
+            {
+                MessageBox.Show("没有数据");
+            }
+            else
+            {
+                line33.Title = tname;
+                line33.Color = tcolor;
+                line33.DataSource = dt;
+                line33.XValues.DateTime = true;
+                line33.XValues.DataMember = "time";
+                line33.YValues.DataMember = cmpdata;
+                tChart1.Series.Add(line33);
+            }
             sql.Close();
-            line33.Title = tname;
-            line33.Color = tcolor;
-            line33.DataSource = dt;
-            line33.XValues.DateTime = true;
-            line33.XValues.DataMember = "time";
-            line33.YValues.DataMember = cmpdata;
-            tChart1.Series.Add(line33);
         }
     }
 }

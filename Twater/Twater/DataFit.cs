@@ -14,51 +14,51 @@ namespace Twater
         string datsours1 = null;
         string cmpdat1 = null;
         //自动站校正数据参量
-        double[] dtph=new double[1024];
-        double[] dtouse=new double[1024];
-        double[] dtwatmp=new double[1024];
-        double[] dtntu=new double[1024];
-        double[] dtann=new double[1024];
-        double[] dtntotal=new double[1024];
-        double[] dtptotal=new double[1024];
-        double[] dtodis=new double[1024];
-        double[] dtchol=new double[1024];
-        double[] dtalgden=new double[1024];
-        double[] dttime=new double[1024];//建模时间取自limis
-        double[] dtnewtim=new double[1024];//具体取值所有时间，作为x
+        double[] dtph=new double[Prediction.LENGTH];
+        double[] dtouse=new double[Prediction.LENGTH];
+        double[] dtwatmp=new double[Prediction.LENGTH];
+        double[] dtntu=new double[Prediction.LENGTH];
+        double[] dtann=new double[Prediction.LENGTH];
+        double[] dtntotal=new double[Prediction.LENGTH];
+        double[] dtptotal=new double[Prediction.LENGTH];
+        double[] dtodis=new double[Prediction.LENGTH];
+        double[] dtchol=new double[Prediction.LENGTH];
+        double[] dtalgden=new double[Prediction.LENGTH];
+        double[] dttime=new double[Prediction.LENGTH];//建模时间取自limis
+        double[] dtnewtim=new double[Prediction.LENGTH];//具体取值所有时间，作为x
         int ddat;//具体所有时间数值个数
         //浮标校正数据参量
-        double[] dfuph=new double[1024];
-        double[] dfuwatmp=new double[1024];
-        double[] dfuntu=new double[1024];
-        double[] dfuodis=new double[1024];
+        double[] dfuph=new double[Prediction.LENGTH];
+        double[] dfuwatmp=new double[Prediction.LENGTH];
+        double[] dfuntu=new double[Prediction.LENGTH];
+        double[] dfuodis=new double[Prediction.LENGTH];
 
-        double[] dfulx=new double[1024];
-        double[] dfullv=new double[1024];
-        double[] dfuyls=new double[1024];
-        double[] dfuavewind=new double[1024];
-        double[] dfuwindspd=new double[1024];
-        double[] dfutmp=new double[1024];
-        double[] dfurelhumid=new double[1024];
-        double[] dfupres=new double[1024];
-        double[] dfurain=new double[1024];
-        double[] dfuheattmp=new double[1024];
-        double[] dfuheatv=new double[1024];
-        double[] dfuconduc=new double[1024];
-        double[] dfusolt=new double[1024];
-        double[] dfutimedat=new double[1024];
+        double[] dfulx=new double[Prediction.LENGTH];
+        double[] dfullv=new double[Prediction.LENGTH];
+        double[] dfuyls=new double[Prediction.LENGTH];
+        double[] dfuavewind=new double[Prediction.LENGTH];
+        double[] dfuwindspd=new double[Prediction.LENGTH];
+        double[] dfutmp=new double[Prediction.LENGTH];
+        double[] dfurelhumid=new double[Prediction.LENGTH];
+        double[] dfupres=new double[Prediction.LENGTH];
+        double[] dfurain=new double[Prediction.LENGTH];
+        double[] dfuheattmp=new double[Prediction.LENGTH];
+        double[] dfuheatv=new double[Prediction.LENGTH];
+        double[] dfuconduc=new double[Prediction.LENGTH];
+        double[] dfusolt=new double[Prediction.LENGTH];
+        double[] dfutimedat=new double[Prediction.LENGTH];
         List<string> strfutimelist = new List<string>();
-        String[] strfudatnew = new String[1024];//存数据库所用的时间字符串中间变量
+        String[] strfudatnew = new String[Prediction.LENGTH];//存数据库所用的时间字符串中间变量
         /// <summary>
         /// //
         /// </summary>
-        String[] strdatnew=new String[1024];//存数据库所用的时间字符串中间变量
+        String[] strdatnew=new String[Prediction.LENGTH];//存数据库所用的时间字符串中间变量
         //中间数据x,y
         List<double> mList = new List<double>();
         List<string> timeList = new List<string>();
         List<string> newtimeList = new List<string>();
-        double[] mlist=new double[1024];
-        double[] timelist=new double[1024];
+        double[] mlist=new double[Prediction.LENGTH];
+        double[] timelist=new double[Prediction.LENGTH];
         double dnewdat;//最后结果
         double dnewtim;//时间的double值
         DateTime fdatetim;
@@ -95,10 +95,9 @@ namespace Twater
                     break;
                 case 1:
                     comboBox2.Items.Add("光照度");
-                    comboBox2.Items.Add("蓝绿藻");
                     comboBox2.Items.Add("叶绿素");
-                    comboBox2.Items.Add("平均风向");
                     comboBox2.Items.Add("平均风速");
+                    comboBox2.Items.Add("平均风向");
                     comboBox2.Items.Add("气温");
                     comboBox2.Items.Add("相对湿度");
                     comboBox2.Items.Add("气压");
@@ -124,8 +123,8 @@ namespace Twater
                     comboBox2.Items.Add("叶绿素");
                     comboBox2.Items.Add("藻密度");
                     comboBox2.Items.Add("光照度");
-                    comboBox2.Items.Add("平均风向");
                     comboBox2.Items.Add("平均风速");
+                    comboBox2.Items.Add("平均风向");
                     comboBox2.Items.Add("气温");
                     comboBox2.Items.Add("相对湿度");
                     comboBox2.Items.Add("气压");
@@ -188,51 +187,48 @@ namespace Twater
                             cmpdat1 = "LX";
                             break;
                         case 1:
-                            cmpdat1 = "LLV";
+                            cmpdat1 = "Chol";
                             break;
                         case 2:
-                            cmpdat1 = "YLS";
-                            break;
-                        case 3:
                             cmpdat1 = "Ave_wind";
                             break;
-                        case 4:
+                        case 3:
                             cmpdat1 = "Wind_spd";
                             break;
-                        case 5:
+                        case 4:
                             cmpdat1 = "Temp";
                             break;
-                        case 6:
+                        case 5:
                             cmpdat1 = "Rel_humid";
                             break;
-                        case 7:
+                        case 6:
                             cmpdat1 = "Pres";
                             break;
-                        case 8:
+                        case 7:
                             cmpdat1 = "Rain";
                             break;
-                        case 9:
+                        case 8:
                             cmpdat1 = "Heat_temp";
                             break;
-                        case 10:
+                        case 9:
                             cmpdat1 = "Heat_v";
                             break;
-                        case 11:
+                        case 10:
                             cmpdat1 = "Water_temp";
                             break;
-                        case 12:
+                        case 11:
                             cmpdat1 = "Conduc";
                             break;
-                        case 13:
+                        case 12:
                             cmpdat1 = "NTU";
                             break;
-                        case 14:
+                        case 13:
                             cmpdat1 = "PH";
                             break;
-                        case 15:
+                        case 14:
                             cmpdat1 = "O_disv";
                             break;
-                        case 16:
+                        case 15:
                             cmpdat1 = "Solt";
                             break;
                     }
@@ -352,37 +348,44 @@ namespace Twater
         /// <param name="datasource"></param>
         private void getdata(string cmpdata,string datasource,string dattime)
         {
-            //select top 3 *from T_lmis where time<'2013-7-6 0:00:00'  order by ID desc 
-            string sqlstr = "select top 20 " + cmpdata + ",time  from " + datasource + " where time< '"+ dattime +"' order by ID desc";
-            SqlConnection sql = new SqlConnection(Global.sqlconstr);
-            sql.Open();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
-            da.Fill(dt);
-          
-            tcountdat = dt.Rows.Count;
-            if (0 == tcountdat)
+            try
             {
-                ;
-            }
-            else
-            {
-                int i = 0;
-                foreach (DataRow dr in dt.Rows)
+                //select top 3 *from T_lmis where time<'2013-7-6 0:00:00'  order by ID desc 
+                string sqlstr = "select top 20 " + cmpdata + ",time  from " + datasource + " where time< '" + dattime + "' order by ID desc";
+                SqlConnection sql = new SqlConnection(Global.sqlconstr);
+                sql.Open();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
+                da.Fill(dt);
+
+                tcountdat = dt.Rows.Count;
+                if (0 == tcountdat)
                 {
-                    if (string.IsNullOrEmpty(dr[0].ToString()))
+                    ;
+                }
+                else
+                {
+                    int i = 0;
+                    foreach (DataRow dr in dt.Rows)
                     {
-                        ;// MessageBox.Show("该值为空值");
-                    }
-                    else
-                    {
-                        mList.Add(double.Parse(dr[0].ToString()));
-                        timeList.Add(dr[1].ToString());
-                        i++;
+                        if (string.IsNullOrEmpty(dr[0].ToString()))
+                        {
+                            ;// MessageBox.Show("该值为空值");
+                        }
+                        else
+                        {
+                            mList.Add(double.Parse(dr[0].ToString()));
+                            timeList.Add(dr[1].ToString());
+                            i++;
+                        }
                     }
                 }
+                sql.Close();
             }
-            sql.Close();
+            catch
+            {
+                MessageBox.Show("获取数据出错");
+            }
         }
 
         #region 自动站数据校正
@@ -400,7 +403,7 @@ namespace Twater
             SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
             da.Fill(dt);
 
-            tcountdat = dt.Rows.Count>1024?1024:dt.Rows.Count;
+            tcountdat = dt.Rows.Count>Prediction.LENGTH?Prediction.LENGTH:dt.Rows.Count;
             if (0 == tcountdat)
             {
                 ;
@@ -490,13 +493,13 @@ namespace Twater
         /// <param name="dattime"></param>
         public void getalltimedata(string datasource)
         {
-            string sqlstr = "select top 1024 time,O_use,P_total,Chol,Alg_den from " + datasource + "  order by ID desc";
+            string sqlstr = "select top Prediction.LENGTH time,O_use,P_total,Chol,Alg_den from " + datasource + "  order by ID desc";
             SqlConnection sql = new SqlConnection(Global.sqlconstr);
             sql.Open();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
             da.Fill(dt);
-            ddat = dt.Rows.Count>1024?1024:dt.Rows.Count;
+            ddat = dt.Rows.Count>Prediction.LENGTH?Prediction.LENGTH:dt.Rows.Count;
             if (0 == ddat)
             {
                 ;
@@ -542,7 +545,7 @@ namespace Twater
             else
             {
                 String[] strdat = lmtimdat.ToArray();
-                tcountdat = tcountdat > 1024 ? 1024 : tcountdat;
+                tcountdat = tcountdat > Prediction.LENGTH ? Prediction.LENGTH : tcountdat;
                 for (int i = 0; i < tcountdat; i++)
                 {
                     fdatetim = DateTime.Parse(strdat[i].ToString());
@@ -577,7 +580,7 @@ namespace Twater
             else
             {
                 strdatnew = lmtimdat.ToArray();
-                tallcoutdat = ddat > 1024 ? 1024 : ddat;
+                tallcoutdat = ddat > Prediction.LENGTH ? Prediction.LENGTH : ddat;
                 for (int i = 0; i < tallcoutdat; i++)
                 {
                     fdatetim = DateTime.Parse(strdatnew[i].ToString());
@@ -637,7 +640,7 @@ namespace Twater
             SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
             da.Fill(dt);
 
-            tcountdat = dt.Rows.Count > 1024 ? 1024 : dt.Rows.Count;
+            tcountdat = dt.Rows.Count > Prediction.LENGTH ? Prediction.LENGTH : dt.Rows.Count;
             if (0 == tcountdat)
             {
                 ;
@@ -670,13 +673,13 @@ namespace Twater
 
         public void fugetalltimedata(string datasource)
         {
-            string sqlstr = "select top 1024 time,LX,LLV,YLS,Ave_wind,Wind_spd,Temp,Rel_humid,Pres,Rain,Heat_temp,Heat_v,Conduc,Solt from " + datasource + "  order by ID desc";
+            string sqlstr = "select top Prediction.LENGTH time,LX,LLV,Chol,Ave_wind,Wind_spd,Temp,Rel_humid,Pres,Rain,Heat_temp,Heat_v,Conduc,Solt from " + datasource + "  order by ID desc";
             SqlConnection sql = new SqlConnection(Global.sqlconstr);
             sql.Open();
             DataTable dt = new DataTable();
             SqlDataAdapter da = new SqlDataAdapter(sqlstr, sql);
             da.Fill(dt);
-            ddat = dt.Rows.Count > 1024 ? 1024 : dt.Rows.Count;
+            ddat = dt.Rows.Count > Prediction.LENGTH ? Prediction.LENGTH : dt.Rows.Count;
             if (0 == ddat)
             {
                 ;
@@ -727,7 +730,7 @@ namespace Twater
             else
             {
                 strfudatnew = lmtimdat.ToArray();
-                tallcoutdat = ddat > 1024 ? 1024 : ddat;
+                tallcoutdat = ddat > Prediction.LENGTH ? Prediction.LENGTH : ddat;
                 for (int i = 0; i < tallcoutdat; i++)
                 {
                     fdatetim = DateTime.Parse(strfudatnew[i].ToString());
@@ -779,7 +782,7 @@ namespace Twater
             sqlcon.Open();
             for (int k = 0; k < ddat; k++)
             {
-                string cmdtxt= "insert  into " + datasource + "(LX,LLV,YLS,Ave_wind,Wind_spd,Temp,Rel_humid,Pres,Rain,Heat_temp,Heat_v,Water_temp,Conduc,NTU,PH,O_disv,Solt,time) values ";
+                string cmdtxt= "insert  into " + datasource + "(LX,LLV,Chol,Ave_wind,Wind_spd,Temp,Rel_humid,Pres,Rain,Heat_temp,Heat_v,Water_temp,Conduc,NTU,PH,O_disv,Solt,time) values ";
                 cmdtxt += "('" + dfulx[k].ToString() + "','" + dfullv[k].ToString() + "','" + dfuyls[k].ToString() + "',";
                 cmdtxt += "'" + dfuavewind[k].ToString() + "','" + dfuwindspd[k].ToString() + "','" + dfutmp[k].ToString() + "',";
                 cmdtxt += "'" + dfurelhumid[k].ToString() + "','" + dfupres[k].ToString() + "','" + dfurain[k].ToString() + "',";
@@ -810,7 +813,7 @@ namespace Twater
             {
                 mlist = lmdat.ToArray();
                 String[] strdat = lmtimdat.ToArray();
-                tcountdat = tcountdat > 1024 ? 1024 : tcountdat;
+                tcountdat = tcountdat > Prediction.LENGTH ? Prediction.LENGTH : tcountdat;
                 for (int i = 0; i < tcountdat; i++)
                 {
                     fdatetim = DateTime.Parse(strdat[i].ToString());

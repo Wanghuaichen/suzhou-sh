@@ -78,9 +78,9 @@ namespace Twater
                         dataGridView1.Columns[2].Width = 165;
                         dataGridView1.Columns[3].HeaderText = "叶绿素(mg/L)";
                         dataGridView1.Columns[3].Width = 165;
-                        dataGridView1.Columns[4].HeaderText = "平均风向(D)";
+                        dataGridView1.Columns[4].HeaderText = "平均风速(D)";
                         dataGridView1.Columns[4].Width = 165;
-                        dataGridView1.Columns[5].HeaderText = "平均风速(m/s)";
+                        dataGridView1.Columns[5].HeaderText = "平均风向(m/s)";
                         dataGridView1.Columns[5].Width = 165;
                         dataGridView1.Columns[6].HeaderText = "气温(C)";
                         dataGridView1.Columns[6].Width = 165;
@@ -110,7 +110,61 @@ namespace Twater
                         dataGridView1.Columns[18].Width = 165;
                         sqlcon1.Close();
                         break;
-                    default: break;
+                    default:
+                        sqlstr = "select * from T_lmis";
+                        dt1 = new DataTable();
+                        SqlConnection sqlcon3 = new SqlConnection(Global.sqlconstr);
+                        sqlcon3.Open();
+                        SqlDataAdapter da3 = new SqlDataAdapter(sqlstr, sqlcon3);
+                        da3.Fill(dt1);
+                        dataGridView1.DataSource = dt1;
+                        dataGridView1.Columns[0].HeaderText = "编号";
+                        dataGridView1.Columns[0].Width = 100;
+                        dataGridView1.Columns[1].HeaderText = "PH值";
+                        dataGridView1.Columns[1].Width = 140;
+                        dataGridView1.Columns[2].HeaderText = "耗氧量(mg/L)";
+                        dataGridView1.Columns[2].Width = 165;
+                        dataGridView1.Columns[3].HeaderText = "水温(C)";
+                        dataGridView1.Columns[3].Width = 165;
+                        dataGridView1.Columns[4].HeaderText = "浊度(NTU)";
+                        dataGridView1.Columns[4].Width = 165;
+                        dataGridView1.Columns[5].HeaderText = "氨氮(mg/L)";
+                        dataGridView1.Columns[5].Width = 165;
+                        dataGridView1.Columns[6].HeaderText = "总氮(mg/L)";
+                        dataGridView1.Columns[6].Width = 165;
+                        dataGridView1.Columns[7].HeaderText = "总磷(mg/L)";
+                        dataGridView1.Columns[7].Width = 165;
+                        dataGridView1.Columns[8].HeaderText = "溶解氧(mg/L)";
+                        dataGridView1.Columns[8].Width = 165;
+                        dataGridView1.Columns[9].HeaderText = "叶绿素(mg/L)";
+                        dataGridView1.Columns[9].Width = 165;
+                        dataGridView1.Columns[10].HeaderText = "藻密度(cell/L)";
+                        dataGridView1.Columns[10].Width = 165;
+
+                        dataGridView1.Columns[11].HeaderText = "光照度";
+                        dataGridView1.Columns[11].Width = 140;
+                        dataGridView1.Columns[12].HeaderText = "平均风速(D)";
+                        dataGridView1.Columns[12].Width = 165;
+                        dataGridView1.Columns[13].HeaderText = "平均风向(m/s)";
+                        dataGridView1.Columns[13].Width = 165;
+                        dataGridView1.Columns[14].HeaderText = "气温(C)";
+                        dataGridView1.Columns[14].Width = 165;
+                        dataGridView1.Columns[15].HeaderText = "相对湿度(%RH)";
+                        dataGridView1.Columns[15].Width = 165;
+                        dataGridView1.Columns[16].HeaderText = "气压(hPa)";
+                        dataGridView1.Columns[16].Width = 165;
+                        dataGridView1.Columns[17].HeaderText = "雨量(mm)";
+                        dataGridView1.Columns[17].Width = 165;
+                        dataGridView1.Columns[18].HeaderText = "加热温度(C)";
+                        dataGridView1.Columns[18].Width = 165;
+                        dataGridView1.Columns[19].HeaderText = "电导率";
+                        dataGridView1.Columns[19].Width = 165;
+                        dataGridView1.Columns[20].HeaderText = "盐度";
+                        dataGridView1.Columns[20].Width = 165;
+                        dataGridView1.Columns[21].HeaderText = "日期";
+                        dataGridView1.Columns[21].Width = 165;
+                        sqlcon3.Close();
+                        break;
                 }
             }
 

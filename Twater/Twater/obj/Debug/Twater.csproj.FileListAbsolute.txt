@@ -22,9 +22,184 @@ H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Searchdata.resources
 H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Showdata.resources
 H:\苏州--水华\Twater\Twater\obj\Debug\Twater.Start.resources
 H:\苏州--水华\Twater\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
-H:\苏州--水华\Twater\Twater\obj\Debug\Interop.finalone.dll
-H:\苏州--水华\Twater\Twater\bin\Debug\Interop.finalone.dll
-H:\苏州--水华\Twater\Twater\bin\Debug\Interop.svmnew.dll
-H:\苏州--水华\Twater\Twater\obj\Debug\Interop.svmnew.dll
 H:\苏州--水华\Twater\Twater\obj\Debug\Interop.xulie.dll
 H:\苏州--水华\Twater\Twater\bin\Debug\Interop.xulie.dll
+H:\Twater\Twater\obj\Debug\Interop.MapXLib.dll
+H:\Twater\Twater\obj\Debug\Interop.MLApp.dll
+H:\Twater\Twater\obj\Debug\Interop.MWComUtil.dll
+H:\Twater\Twater\obj\Debug\Interop.xulie.dll
+H:\Twater\Twater\obj\Debug\AxInterop.MapXLib.dll
+H:\Twater\Twater\obj\Debug\Twater.csproj.ResolveComReference.cache
+H:\Twater\Twater\obj\Debug\Twater.exe
+H:\Twater\Twater\obj\Debug\Twater.pdb
+H:\Twater\Twater\bin\Debug\Twater.exe
+H:\Twater\Twater\bin\Debug\Twater.pdb
+H:\Twater\Twater\bin\Debug\Interop.MapXLib.dll
+H:\Twater\Twater\bin\Debug\Interop.MLApp.dll
+H:\Twater\Twater\bin\Debug\Interop.MWComUtil.dll
+H:\Twater\Twater\bin\Debug\Interop.xulie.dll
+H:\Twater\Twater\bin\Debug\AxInterop.MapXLib.dll
+H:\Twater\Twater\obj\Debug\ResolveAssemblyReference.cache
+H:\Twater\Twater\obj\Debug\Twater.About.resources
+H:\Twater\Twater\obj\Debug\Twater.DataFit.resources
+H:\Twater\Twater\obj\Debug\Twater.Mainfrm.resources
+H:\Twater\Twater\obj\Debug\Twater.Prediction.resources
+H:\Twater\Twater\obj\Debug\Twater.Properties.Resources.resources
+H:\Twater\Twater\obj\Debug\Twater.Reportdata.resources
+H:\Twater\Twater\obj\Debug\Twater.Searchdata.resources
+H:\Twater\Twater\obj\Debug\Twater.Showdata.resources
+H:\Twater\Twater\obj\Debug\Twater.Start.resources
+H:\Twater\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
+H:\Twater\Twater\obj\Debug\Interop.svma.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Interop.svma.dll
+H:\苏州--水华\Twater\Twater\obj\Debug\Interop.svmoo.dll
+H:\苏州--水华\Twater\Twater\bin\Debug\Interop.svma.dll
+H:\苏州--水华\Twater\Twater\bin\Debug\Interop.svmoo.dll
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\ResolveAssemblyReference.cache
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Interop.MapXLib.dll
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Interop.MLApp.dll
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Interop.MWComUtil.dll
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\AxInterop.MapXLib.dll
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.csproj.ResolveComReference.cache
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.About.resources
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.DataFit.resources
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.Mainfrm.resources
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.Prediction.resources
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.Properties.Resources.resources
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.Reportdata.resources
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.Searchdata.resources
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.Showdata.resources
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.Start.resources
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.exe
+H:\苏州--水华\Twater--终极版\Twater\bin\Debug\Twater.exe
+H:\苏州--水华\Twater--终极版\Twater\bin\Debug\Twater.pdb
+H:\苏州--水华\Twater--终极版\Twater\bin\Debug\Interop.MapXLib.dll
+H:\苏州--水华\Twater--终极版\Twater\bin\Debug\Interop.MLApp.dll
+H:\苏州--水华\Twater--终极版\Twater\bin\Debug\Interop.MWComUtil.dll
+H:\苏州--水华\Twater--终极版\Twater\bin\Debug\AxInterop.MapXLib.dll
+H:\苏州--水华\Twater--终极版\Twater\obj\Debug\Twater.pdb
+F:\Twater--终极版\Twater\bin\Debug\Twater.exe
+F:\Twater--终极版\Twater\bin\Debug\Twater.pdb
+F:\Twater--终极版\Twater\bin\Debug\msmdvbanet.dll
+F:\Twater--终极版\Twater\bin\Debug\Interop.MapXLib.dll
+F:\Twater--终极版\Twater\bin\Debug\Interop.MLApp.dll
+F:\Twater--终极版\Twater\bin\Debug\Interop.MWComUtil.dll
+F:\Twater--终极版\Twater\bin\Debug\AxInterop.MapXLib.dll
+F:\Twater--终极版\Twater\obj\Debug\ResolveAssemblyReference.cache
+F:\Twater--终极版\Twater\obj\Debug\Interop.MapXLib.dll
+F:\Twater--终极版\Twater\obj\Debug\Interop.MLApp.dll
+F:\Twater--终极版\Twater\obj\Debug\Interop.MWComUtil.dll
+F:\Twater--终极版\Twater\obj\Debug\AxInterop.MapXLib.dll
+F:\Twater--终极版\Twater\obj\Debug\Twater.csproj.ResolveComReference.cache
+F:\Twater--终极版\Twater\obj\Debug\Twater.About.resources
+F:\Twater--终极版\Twater\obj\Debug\Twater.DataFit.resources
+F:\Twater--终极版\Twater\obj\Debug\Twater.Mainfrm.resources
+F:\Twater--终极版\Twater\obj\Debug\Twater.Prediction.resources
+F:\Twater--终极版\Twater\obj\Debug\Twater.Properties.Resources.resources
+F:\Twater--终极版\Twater\obj\Debug\Twater.Reportdata.resources
+F:\Twater--终极版\Twater\obj\Debug\Twater.Searchdata.resources
+F:\Twater--终极版\Twater\obj\Debug\Twater.Showdata.resources
+F:\Twater--终极版\Twater\obj\Debug\Twater.Start.resources
+F:\Twater--终极版\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
+F:\Twater--终极版\Twater\obj\Debug\Twater.exe
+F:\Twater--终极版\Twater\obj\Debug\Twater.pdb
+F:\Twater--终极版\Twater\bin\Debug\Twater.exe.config
+F:\Twater--终极版\Twater\bin\Debug\Twater.exe.manifest
+F:\Twater--终极版\Twater\bin\Debug\Twater.application
+F:\Twater--终极版\Twater\obj\Debug\Twater.exe.manifest
+F:\Twater--终极版\Twater\obj\Debug\Twater.application
+F:\Twater--终极版\Twater\obj\Debug\Interop.SVMpredictone.dll
+F:\Twater--终极版\Twater\obj\Debug\Interop.waterwlc3.dll
+F:\Twater--终极版\Twater\bin\Debug\Interop.SVMpredictone.dll
+F:\Twater--终极版\Twater\bin\Debug\Interop.waterwlc3.dll
+E:\Twater--终极版\Twater\bin\Debug\Twater.exe.config
+E:\Twater--终极版\Twater\obj\Debug\Interop.MapXLib.dll
+E:\Twater--终极版\Twater\obj\Debug\Interop.MLApp.dll
+E:\Twater--终极版\Twater\obj\Debug\Interop.MWComUtil.dll
+E:\Twater--终极版\Twater\obj\Debug\AxInterop.MapXLib.dll
+E:\Twater--终极版\Twater\obj\Debug\Twater.csproj.ResolveComReference.cache
+E:\Twater--终极版\Twater\obj\Debug\Twater.exe
+E:\Twater--终极版\Twater\obj\Debug\Twater.pdb
+E:\Twater--终极版\Twater\obj\Debug\ResolveAssemblyReference.cache
+E:\Twater--终极版\Twater\obj\Debug\Twater.About.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.DataFit.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.Mainfrm.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.Prediction.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.Properties.Resources.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.Reportdata.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.Searchdata.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.Showdata.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.Start.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
+E:\Twater--终极版\Twater\bin\Debug\Twater.exe.manifest
+E:\Twater--终极版\Twater\bin\Debug\Twater.application
+E:\Twater--终极版\Twater\bin\Debug\Twater.exe
+E:\Twater--终极版\Twater\bin\Debug\Twater.pdb
+E:\Twater--终极版\Twater\bin\Debug\msmdvbanet.dll
+E:\Twater--终极版\Twater\bin\Debug\Interop.MapXLib.dll
+E:\Twater--终极版\Twater\bin\Debug\Interop.MLApp.dll
+E:\Twater--终极版\Twater\bin\Debug\Interop.MWComUtil.dll
+E:\Twater--终极版\Twater\bin\Debug\AxInterop.MapXLib.dll
+E:\Twater--终极版\Twater\obj\Debug\Twater.exe.manifest
+E:\Twater--终极版\Twater\obj\Debug\Twater.application
+E:\Twater--终极版\Twater\obj\Debug\Twater.Setting.resources
+E:\Twater--终极版\Twater\obj\Debug\Twater.WaitingDlg.resources
+E:\Twater--终极版\Twater\obj\Debug\Interop.SVMpredictone.dll
+E:\Twater--终极版\Twater\bin\Debug\Interop.SVMpredictone.dll
+E:\Twater--终极版 - 副本\Twater\bin\Debug\Twater.exe.config
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Interop.MapXLib.dll
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Interop.MLApp.dll
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Interop.MWComUtil.dll
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Interop.SVMpredictone.dll
+E:\Twater--终极版 - 副本\Twater\obj\Debug\AxInterop.MapXLib.dll
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.csproj.ResolveComReference.cache
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.exe
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.pdb
+E:\Twater--终极版 - 副本\Twater\obj\Debug\ResolveAssemblyReference.cache
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.About.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.DataFit.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.Mainfrm.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.Prediction.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.Properties.Resources.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.Reportdata.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.Searchdata.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.Setting.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.Showdata.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.Start.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.WaitingDlg.resources
+E:\Twater--终极版 - 副本\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
+E:\Twater--终极版 -\Twater\bin\Debug\Twater.exe.config
+E:\Twater--终极版 -\Twater\obj\Debug\Interop.MapXLib.dll
+E:\Twater--终极版 -\Twater\obj\Debug\Interop.MLApp.dll
+E:\Twater--终极版 -\Twater\obj\Debug\Interop.MWComUtil.dll
+E:\Twater--终极版 -\Twater\obj\Debug\Interop.SVMpredictone.dll
+E:\Twater--终极版 -\Twater\obj\Debug\AxInterop.MapXLib.dll
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.csproj.ResolveComReference.cache
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.exe
+E:\Twater--终极版 -\Twater\bin\Debug\Twater.exe.manifest
+E:\Twater--终极版 -\Twater\bin\Debug\Twater.application
+E:\Twater--终极版 -\Twater\bin\Debug\Twater.exe
+E:\Twater--终极版 -\Twater\bin\Debug\Twater.pdb
+E:\Twater--终极版 -\Twater\bin\Debug\msmdvbanet.dll
+E:\Twater--终极版 -\Twater\bin\Debug\Interop.MapXLib.dll
+E:\Twater--终极版 -\Twater\bin\Debug\Interop.MLApp.dll
+E:\Twater--终极版 -\Twater\bin\Debug\Interop.MWComUtil.dll
+E:\Twater--终极版 -\Twater\bin\Debug\Interop.SVMpredictone.dll
+E:\Twater--终极版 -\Twater\bin\Debug\AxInterop.MapXLib.dll
+E:\Twater--终极版 -\Twater\obj\Debug\ResolveAssemblyReference.cache
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.About.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.DataFit.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.Mainfrm.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.Prediction.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.Properties.Resources.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.Reportdata.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.Searchdata.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.Setting.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.Showdata.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.Start.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.WaitingDlg.resources
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.csproj.GenerateResource.Cache
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.exe.manifest
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.application
+E:\Twater--终极版 -\Twater\obj\Debug\Twater.pdb
